@@ -13,7 +13,7 @@ Bundler.require(*Rails.groups)
 
 module TomatoesApp
   VERSION = '0.14.11'.freeze
-  REPO = 'https://github.com/tomatoes-app/tomatoes'.freeze
+  REPO = 'https://github.com/DW-Corp/tomatoes'.freeze
 
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.

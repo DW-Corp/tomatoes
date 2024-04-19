@@ -1,15 +1,17 @@
-version: '3'
+version: "3"
 services:
   mongo:
-    image: mongo
+    image: mongo:4
     ports:
-    - 27017:27017
+      - 27017:27017
 
   web:
     platform: linux/amd64
     build: .
     volumes:
       - .:/tomatoes
+    tmpfs:
+      - /tomatoes/tmp
     entrypoint: ./docker-entrypoint.sh
     ports:
       - 3000:3000
