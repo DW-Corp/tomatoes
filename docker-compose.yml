@@ -18,6 +18,7 @@ services:
     depends_on:
       - mongo
     environment:
+      - RAILS_ENV=${RAILS_ENV}
       - DO_HOST=mongo
       - DURATION=${DURATION}
       - GITHUB_CLIENT_ID=${GITHUB_CLIENT_ID}
@@ -26,3 +27,4 @@ services:
       - SENDGRID_PASSWORD=${SENDGRID_PASSWORD}
       - TWITTER_CONSUMER_KEY=${TWITTER_CONSUMER_KEY}
       - TWITTER_CONSUMER_SECRET=${TWITTER_CONSUMER_SECRET}
+      - EXCEPTION_RECIPIENTS=contato@dwcorp.com.br
