@@ -24,14 +24,14 @@ development:
         #     - use: web
 
         # The name of the user for authentication.
-        # user: 'user'
+        user: '<%= ENV["MONGO_USERNAME"] %>'
 
         # The password of the user for authentication.
-        # password: 'password'
+        password: '<%= ENV["MONGO_PASSWORD"] %>'
 
         # The user's database roles.
-        # roles:
-        #   - 'dbOwner'
+        roles:
+          - 'dbOwner'
 
         # Change the default authentication mechanism. Valid options are: :scram,
         # :mongodb_cr, :mongodb_x509, and :plain. (default on 3.0 is :scram, default
@@ -39,7 +39,7 @@ development:
         # auth_mech: :scram
 
         # The database or source to authenticate the user against. (default: admin)
-        # auth_source: admin
+        auth_source: admin
 
         # Force a the driver cluster to behave in a certain manner instead of auto-
         # discovering. Can be one of: :direct, :replica_set, :sharded. Set to :direct
