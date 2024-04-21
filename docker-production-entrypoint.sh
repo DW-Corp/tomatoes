@@ -1,12 +1,12 @@
 #!/bin/bash
-set -e
+# set -e
 
-# Checking for MongoDB availability
-mongo --host mongo --eval "use admin; db.stats();" --quiet
+# # Checking for MongoDB availability
+# mongo --host mongo --eval "use admin; db.stats();" --quiet
 
-# Prepare the database
-echo "Preparing database..."
-bundle exec rake db:migrate RAILS_ENV=production
+# # Prepare the database
+# echo "Preparing database..."
+# bundle exec rake db:migrate RAILS_ENV=production
 
 # Precompile assets (uncomment if you manage assets inside the container)
 # echo "Precompiling assets..."
