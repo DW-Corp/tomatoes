@@ -5,13 +5,13 @@ services:
     ports:
       - 27017:27017
     volumes:
+      - mongo_data:/data/db
       - ./mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
     environment:
       - MONGO_INITDB_ROOT_USERNAME=${MONGO_ROOT_USERNAME}
       - MONGO_INITDB_ROOT_PASSWORD=${MONGO_ROOT_PASSWORD}
       - MONGO_INITDB_DATABASE=admin
     command: ["mongod", "--auth"]
-
 
   web:
     platform: linux/amd64
@@ -27,7 +27,7 @@ services:
       - mongo
     environment:
       - RAILS_ENV=${RAILS_ENV}
-      - DO_HOST=mongo
+      - DO_HOST=${DO_HOST}
       - DURATION=${DURATION}
       - BREAK_DURATION=${BREAK_DURATION}
       - GITHUB_CLIENT_ID=${GITHUB_CLIENT_ID}
@@ -39,3 +39,7 @@ services:
       - EXCEPTION_RECIPIENTS=contato@dwcorp.com.br
       - MONGO_USERNAME=${MONGO_USERNAME}
       - MONGO_PASSWORD=${MONGO_PASSWORD}
+
+volumes:
+  mongo_data:
+    driver: local
