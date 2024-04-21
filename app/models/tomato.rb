@@ -17,7 +17,7 @@ class Tomato
   after_destroy :decrement_score
 
   DURATION       = Rails.env.development? ? ENV.fetch("DURATION", 25).to_i : 25 * 60 # pomodoro default duration in seconds
-  BREAK_DURATION = Rails.env.development? ? 5  : 5 * 60  # pomodoro default break duration in seconds
+  BREAK_DURATION = Rails.env.development? ? ENV.fetch("BREAK_DURATION", 5).to_i  : 5 * 60  # pomodoro default break duration in seconds
 
   include ActionView::Helpers::TextHelper
   include ApplicationHelper
